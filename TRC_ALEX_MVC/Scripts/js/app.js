@@ -1,4 +1,5 @@
 class HomePage {
+    /// Run on page load and init events
     constructor() {
         this.txtAreaMaxSize = 29;
         this.line = 0;
@@ -20,6 +21,7 @@ class HomePage {
             $(".file-names").click(e => loadInputFile(e.currentTarget));
         });
     }
+    /// Loads the valid commands from the selected file into the command list
     loadInputFile(e) {
         let name = e.innerHTML;
         $(".file-names").removeClass("list-group-item-primary");
@@ -30,6 +32,7 @@ class HomePage {
             $("#commands").prop("rows", this.lineCount + 1);
         });
     }
+    /// Runs the next command
     step() {
         var cmd = homePage.nextCommand();
         let e = document.getElementById('commands');
@@ -40,11 +43,13 @@ class HomePage {
             });
         }
     }
+    /// Used to reload the board in its current state
     refreshBoard() {
         $.get("/home/play", function (response) {
             $("#board").html(response);
         });
     }
+    /// Gets the next command from the list
     nextCommand() {
         let txt = $("#commands").val().toString();
         var txtLine = txt.split("\n")[this.line];
@@ -52,6 +57,7 @@ class HomePage {
         this.line++;
         return txtLine;
     }
+    /// Highlights the current line in the command list textarea
     /// Source from: https://stackoverflow.com/questions/37155642/in-javascript-how-to-highlight-single-line-of-text-in-textarea
     selectTextareaLine(tarea, lineNum) {
         lineNum--; // array starts at 0

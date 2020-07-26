@@ -1,10 +1,10 @@
-﻿import { event, Event } from "jquery";
-
+﻿
 class HomePage {
 
     private txtAreaMaxSize: number = 29;
     private line: number = 0;
     private lineCount: number = 0;
+    /// Run on page load and init events
     constructor() {
         let line: number = this.line;
         let step: Function = this.step;
@@ -26,6 +26,7 @@ class HomePage {
             $(".file-names").click(e => loadInputFile(e.currentTarget))
         });
     }
+    /// Loads the valid commands from the selected file into the command list
     loadInputFile(e:HTMLUListElement) {
         let name = e.innerHTML;
         $(".file-names").removeClass("list-group-item-primary");
@@ -36,7 +37,7 @@ class HomePage {
             $("#commands").prop("rows", this.lineCount + 1);
         });
     }
-
+    /// Runs the next command
     step() {
         var cmd = homePage.nextCommand();
         let e: HTMLTextAreaElement = document.getElementById('commands') as HTMLTextAreaElement;
@@ -47,13 +48,13 @@ class HomePage {
             });
         }
     }
-
+    /// Used to reload the board in its current state
     refreshBoard() {
         $.get("/home/play", function (response) {
             $("#board").html(response);
         });
     }
-
+    /// Gets the next command from the list
     nextCommand() {
         let txt: string = $("#commands").val().toString();
         var txtLine = txt.split("\n")[this.line];
@@ -61,7 +62,7 @@ class HomePage {
         this.line++;
         return txtLine;
     }
-
+    /// Highlights the current line in the command list textarea
     /// Source from: https://stackoverflow.com/questions/37155642/in-javascript-how-to-highlight-single-line-of-text-in-textarea
     selectTextareaLine(tarea: HTMLTextAreaElement, lineNum: number) {
         lineNum--; // array starts at 0
