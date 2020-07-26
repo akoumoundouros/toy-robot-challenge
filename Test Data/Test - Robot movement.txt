@@ -1,0 +1,82 @@
+﻿##############################################################################
+#
+# This is a command file to exercise the robot movement commands
+#
+##############################################################################
+
+echo 
+
+##############################################################################
+# Something simple to begin with...
+echo Test 1 - Simple PLACE, MOVE & TURN commands
+echo Expected output: 2,2,WEST
+PLACE 2,2,NORTH
+RIGHT
+MOVE
+MOVE
+LEFT
+LEFT
+MOVE
+MOVE
+VALIDATE 2,2,WEST
+REPORT
+echo 
+
+
+##############################################################################
+# Travel clockwise around the edge of the table
+echo Test 2 - Travel clockwise around the edge of the table
+echo Expected output: 0,3,NORTH
+PLACE 0,4,NORTH
+RIGHT
+MOVE MOVE MOVE MOVE
+RIGHT
+MOVE MOVE MOVE MOVE
+RIGHT
+MOVE MOVE MOVE MOVE
+RIGHT
+MOVE MOVE MOVE
+VALIDATE 0,3,NORTH
+REPORT
+echo 
+
+
+##############################################################################
+# Travel counter clockwise around the edge of the table
+echo Test 3 - Travel clockwise around the edge of the table
+echo Expected output: 3,0,EAST
+PLACE 4,0,SOUTH
+LEFT LEFT
+MOVE MOVE MOVE MOVE
+LEFT
+MOVE MOVE MOVE MOVE
+LEFT
+MOVE MOVE MOVE MOVE
+LEFT
+MOVE MOVE MOVE
+VALIDATE 3,0,EAST
+REPORT
+echo 
+
+
+
+
+##############################################################################
+# Try to travel off the edge of the table
+echo Test 4 - Try to travel off the edge of the table
+echo Expected output: 4,1,EAST & 4,4,NORTH
+PLACE 1,1,EAST
+MOVE MOVE MOVE
+VALIDATE 4,1,EAST
+# really try hard to go off the east edge!
+MOVE MOVE MOVE MOVE MOVE MOVE MOVE MOVE MOVE
+VALIDATE 4,1,EAST
+REPORT
+LEFT
+MOVE MOVE MOVE
+VALIDATE 4,4,NORTH
+# really try hard to go off the north edge!
+MOVE MOVE MOVE MOVE MOVE MOVE MOVE MOVE MOVE
+VALIDATE 4,4,NORTH
+REPORT
+echo 

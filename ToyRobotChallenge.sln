@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToyRobotChallenge", "ToyRobotChallenge\ToyRobotChallenge.csproj", "{FBF6FF72-77F7-4780-AB4E-E283AD1769B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{753807DA-F472-4BE6-91B1-4236EAAC71BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test Data", "Test Data", "{E3FB8CE3-690C-4EB2-9B13-56FAE5A1DFC4}"
+	ProjectSection(SolutionItems) = preProject
+		Test Data\Example.txt = Test Data\Example.txt
+		Test Data\Test - Command Parsing.txt = Test Data\Test - Command Parsing.txt
+		Test Data\Test - Garbage Content.txt = Test Data\Test - Garbage Content.txt
+		Test Data\Test - Robot movement.txt = Test Data\Test - Robot movement.txt
+		Test Data\Test - Robot placement.txt = Test Data\Test - Robot placement.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRC_ALEX_MVC", "TRC_ALEX_MVC\TRC_ALEX_MVC.csproj", "{B58BDB51-581D-42D8-906C-3D100CE1BD93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBF6FF72-77F7-4780-AB4E-E283AD1769B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBF6FF72-77F7-4780-AB4E-E283AD1769B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBF6FF72-77F7-4780-AB4E-E283AD1769B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBF6FF72-77F7-4780-AB4E-E283AD1769B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{753807DA-F472-4BE6-91B1-4236EAAC71BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{753807DA-F472-4BE6-91B1-4236EAAC71BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{753807DA-F472-4BE6-91B1-4236EAAC71BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{753807DA-F472-4BE6-91B1-4236EAAC71BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B58BDB51-581D-42D8-906C-3D100CE1BD93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B58BDB51-581D-42D8-906C-3D100CE1BD93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B58BDB51-581D-42D8-906C-3D100CE1BD93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B58BDB51-581D-42D8-906C-3D100CE1BD93}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2DBFC97-E509-432F-99C5-82FA39283292}
+	EndGlobalSection
+EndGlobal

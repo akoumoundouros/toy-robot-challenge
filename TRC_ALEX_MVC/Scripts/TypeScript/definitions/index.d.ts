@@ -1,0 +1,1 @@
+﻿/// <reference path="Scripts/TypeScript/definitions/jquery/index.d.ts">

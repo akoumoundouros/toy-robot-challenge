@@ -1,0 +1,141 @@
+﻿@model IEnumerable<string>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="">
+    <div class="card card-deck">
+        <div class="col-4 card-title"><h2 class="m-2">Input</h2></div>
+        <div class="col-8 card-title"><h2 class="m-2">Table</h2></div>
+        <div class="col-4 card-body">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Select File</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Commands</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <ul class="list-unstyled">
+                        @foreach (var item in Model)
+                        {
+                            <li class="list-group-item" onclick="loadInputFile(this,'@item')">@item </li>
+                        }
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="mx-auto">
+                    <textarea class="form-control col-12" rows="10" id="commands"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="p-1">
+                <button id="reset" class="btn btn-primary"><i class="fa fa-repeat"></i></button>
+                <button id="step" class="btn btn-success"><i class="fa fa-step-forward"></i></button>
+            </div>
+        </div>
+
+        <div class="col-8 card-body">
+            <div class="jumbotron" id="board"></div>
+        </div>
+        
+    </div>
+</div>
+
+<script type="text/javascript">
+    var line = 0, lineCount = 0;
+
+    $(document).ready(function () {
+        refreshBoard()
+
+        $("#step").click(function () {
+            step();
+        });
+
+        $("#reset").click(function () {
+            line = 0;
+            $.get("/home/reset", function () {
+                refreshBoard();
+            });
+        });
+    });
+
+    function loadInputFile(e, name) {
+        $("li").removeClass("list-group-item-primary");
+        $(e).addClass(" list-group-item-primary");
+        $.get("/input?id=" + name, function (response) {
+            $("#commands").val(response);
+            lineCount = response.split("\n").length > 29 ? 29 : response.split("\n").length;
+            $("#commands").prop("rows", lineCount + 1);
+        });
+    }
+
+    function step() {
+        var cmd = nextCommand();
+        selectTextareaLine(document.getElementById('commands'), line);
+        if (cmd != undefined) {
+            $.get("/home/step?cmd=" + cmd, function (response) {
+                refreshBoard();
+            });
+        }
+    }
+
+    function refreshBoard() {
+        $.get("/home/play", function (response) {
+            $("#board").html(response);
+        });
+    }
+
+    function nextCommand() {
+        var txt = $("#commands").val();
+        var txtLine = txt.split("\n")[line];
+        console.log(line + ":" + txtLine);
+        line++;
+        return txtLine;
+    }
+
+    /// Source from: https://stackoverflow.com/questions/37155642/in-javascript-how-to-highlight-single-line-of-text-in-textarea
+    function selectTextareaLine(tarea, lineNum) {
+        lineNum--; // array starts at 0
+        var lines = tarea.value.split("\n");
+
+        // calculate start/end
+        var startPos = 0,
+            endPos = tarea.value.length;
+        for (var x = 0; x < lines.length; x++) {
+            if (x == lineNum) {
+                break;
+            }
+            startPos += (lines[x].length + 1);
+
+        }
+
+        var endPos = lines[lineNum].length + startPos;
+
+        // do selection
+        // Chrome / Firefox
+
+        if (typeof (tarea.selectionStart) != "undefined") {
+            tarea.focus();
+            tarea.selectionStart = startPos;
+            tarea.selectionEnd = endPos;
+            return true;
+        }
+
+        // IE
+        if (document.selection && document.selection.createRange) {
+            tarea.focus();
+            tarea.select();
+            var range = document.selection.createRange();
+            range.collapse(true);
+            range.moveEnd("character", endPos);
+            range.moveStart("character", startPos);
+            range.select();
+            return true;
+        }
+
+        return false;
+    }
+</script>

@@ -1,0 +1,14 @@
+# README #
+
+**Introduction**
+I was provided with the following [URL](https://bitbucket.org/simonpb/toy-robot-challenge/wiki/Home) containing source code and asked to undertake the challenge. 
+Based on what was provided, I have made the assumption that my task is to implement my own solution based on the ToyRobotChallenge project being a library.
+My implementation, titled TRC_ALEX_MVC was developed using traditional .NET MVC with views and custom JavaScript. 
+
+**Instructions**
+To run this solution just build and play using VS and Google Chrome. From the home page, select the desired test file, switch to the Commands tab and then using 
+the step button, step through each command. To reset the board, press the reset button.
+
+**Additional Notes**
+Please note the solution has only been tested on a Windows desktop running Chrome. In a normal scenario I would structure the JavaScript code differently but to 
+simplify readibility I have embedded it within the home/index view.

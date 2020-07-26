@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "target": "es6",
+    "outDir": "Scripts/js/",
+    "allowSyntheticDefaultImports": true,
+    "types": [ "jquery" ]
+  },
+  "include": [
+    "Scripts/TypeScript/*"
+  ],
+  "compileOnSave": true
+}
