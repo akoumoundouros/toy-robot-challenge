@@ -304,6 +304,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\TypeScript\Typings\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
