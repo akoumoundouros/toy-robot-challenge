@@ -18,6 +18,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test Data", "Test Data", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRC_ALEX_MVC", "TRC_ALEX_MVC\TRC_ALEX_MVC.csproj", "{B58BDB51-581D-42D8-906C-3D100CE1BD93}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E9BA8789-308E-491F-9331-3A8A453841DD}"
+	ProjectSection(SolutionItems) = preProject
+		package.json = package.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
