@@ -7,9 +7,13 @@ I was provided with the following [URL](https://bitbucket.org/simonpb/toy-robot-
 ## Instructions
 
 To run the solution:
+
 **1.** Restore nuget packages
+
 **2.** Restore package.json node modules
+
 **3.** Build and run from Visual Studio and Google Chrome. 
+
 **4.** From the home page, select the desired test file, switch to the Commands tab and then using the step button, step through each command. To reset the board, press the reset button.
 
 ## Additional Notes
